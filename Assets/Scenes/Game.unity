@@ -1363,6 +1363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerScore: 0
   AiScore: 0
+  movementSpd: 50
   AI: {fileID: 772302183}
   Player: {fileID: 42942548}
   redMessage: {fileID: 1157810316}
@@ -1370,6 +1371,8 @@ MonoBehaviour:
   PauseButton: {fileID: 546629206}
   ResumeButton: {fileID: 2127174595}
   Ball: {fileID: 723224943}
+  leftPaddle: {fileID: 8798791388748989819}
+  rightPaddle: {fileID: 1789543714}
 --- !u!1 &1270311947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,8 +1614,9 @@ MonoBehaviour:
   rgbody2d: {fileID: 1789543716}
   boxcollider2d: {fileID: 1789543717}
   movementSpd: 70
-  redMessage: {fileID: 1157810316}
-  blueMessage: {fileID: 404878094}
+  gameManager: {fileID: 0}
+  redMessage: {fileID: 0}
+  blueMessage: {fileID: 0}
 --- !u!1 &1856580987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,5 +2289,16 @@ PrefabInstance:
       propertyPath: blueMessage
       value: 
       objectReference: {fileID: 404878094}
+    - target: {fileID: 8798791387451543071, guid: 4289e573ee1f04340bc97c8fd93fdbb0,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1255130742}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4289e573ee1f04340bc97c8fd93fdbb0, type: 3}
+--- !u!1 &8798791388748989819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8798791387451543067, guid: 4289e573ee1f04340bc97c8fd93fdbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8798791388748989818}
+  m_PrefabAsset: {fileID: 0}

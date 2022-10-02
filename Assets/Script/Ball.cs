@@ -9,10 +9,9 @@ public class Ball : MonoBehaviour
     public CircleCollider2D circlecollider2d;
     public GameObject ball;
 
+    public float speed;
     public Text redMessage;
     public Text blueMessage;
-
-    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +23,8 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
-        // If red message is active in the hierarchy
-        if (redMessage.gameObject.activeInHierarchy == true)
-        {
-            rgbody2d.velocity = Vector2.zero; // Set vector3 to zero (stop all movements)
-        }
-        // If blue message is active in the hierarchy
-        else if (blueMessage.gameObject.activeInHierarchy == true)
+        // If red message or blue message is active in the hierarchy
+        if (redMessage.gameObject.activeInHierarchy == true || blueMessage.gameObject.activeInHierarchy == true)
         {
             rgbody2d.velocity = Vector2.zero; // Set vector3 to zero (stop all movements)
         }
@@ -40,5 +34,6 @@ public class Ball : MonoBehaviour
             rgbody2d.velocity = rgbody2d.velocity.normalized * speed;
         }
     }
+
 
 }

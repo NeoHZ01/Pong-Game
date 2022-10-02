@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public int PlayerScore = 0;
     public int AiScore = 0;
+    public float movementSpd = 20f;
 
     public Text AI;
     public Text Player;
@@ -15,7 +16,11 @@ public class GameManager : MonoBehaviour
     public Text blueMessage;
     public Button PauseButton;
     public Button ResumeButton;
+
     public GameObject Ball;
+    public GameObject leftPaddle;
+    public GameObject rightPaddle;
+
 
     // Add point to AI score if AI scored
     public void AddAi()
@@ -91,9 +96,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Stop all movements in the game when game is won (For both paddles and ball)
+    /*public void StopMovements()
+    {
+        // Get rigidbody2d component from ball
+        Rigidbody2D rgbody2dBall = Ball.GetComponent<Rigidbody2D>();
+
+        // Get rigidbody2d component from left paddle (player paddle)
+        Rigidbody2D rgbody2dLPaddle = leftPaddle.GetComponent<Rigidbody2D>();
+
+
+        // If red message is active in the hierarchy
+        if (redMessage.gameObject.activeInHierarchy == true || blueMessage.gameObject.activeInHierarchy == true)
+        {
+            rgbody2dBall.velocity = Vector2.zero; // Stop the ball movement;
+            rgbody2dLPaddle.velocity = Vector3.zero; // Stop left paddle movement;      
+            Debug.Log("Left paddle stop");
+        }
+        else
+        {
+
+        }
+        
+    }*/
+
     // Start is called before the first frame update
     void Start()
     {
+
         // Hide the messages and resume button when the game is started
         blueMessage.gameObject.SetActive(false);
         redMessage.gameObject.SetActive(false);
@@ -106,5 +136,7 @@ public class GameManager : MonoBehaviour
     {
         // Invoke the congratulate method in update
         Congratulate();
+
+        //StopMovements();
     }
 }
