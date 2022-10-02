@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public GameObject rightPaddle;
 
 
+    private bool GameStatus = false;
+
     // Add point to AI score if AI scored
     public void AddAi()
     {
@@ -85,40 +87,23 @@ public class GameManager : MonoBehaviour
         if (AiScore == 5 && PlayerScore < 5)
         {
             redMessage.gameObject.SetActive(true); // Show the congratulation message for the ai
+            GameStatus = true; // Set game end to true
 
         }
         // If player score is 5 and ai score is less than 5
         else if (PlayerScore == 5 && AiScore < 5)
         {
             blueMessage.gameObject.SetActive(true); // Show the congratulation message for the player
-            
-           
+            GameStatus = true; // Set game end to true
+
         }
     }
 
-    // Stop all movements in the game when game is won (For both paddles and ball)
-    /*public void StopMovements()
+    // Game end bool value will be the same as return value (if game status is false, game end will return false)
+    public bool GameEnd()
     {
-        // Get rigidbody2d component from ball
-        Rigidbody2D rgbody2dBall = Ball.GetComponent<Rigidbody2D>();
-
-        // Get rigidbody2d component from left paddle (player paddle)
-        Rigidbody2D rgbody2dLPaddle = leftPaddle.GetComponent<Rigidbody2D>();
-
-
-        // If red message is active in the hierarchy
-        if (redMessage.gameObject.activeInHierarchy == true || blueMessage.gameObject.activeInHierarchy == true)
-        {
-            rgbody2dBall.velocity = Vector2.zero; // Stop the ball movement;
-            rgbody2dLPaddle.velocity = Vector3.zero; // Stop left paddle movement;      
-            Debug.Log("Left paddle stop");
-        }
-        else
-        {
-
-        }
-        
-    }*/
+        return GameStatus; // Return game status bool value
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -137,6 +122,5 @@ public class GameManager : MonoBehaviour
         // Invoke the congratulate method in update
         Congratulate();
 
-        //StopMovements();
     }
 }

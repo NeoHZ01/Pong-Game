@@ -16,11 +16,10 @@ public class PaddleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gameManager.StopMovements();
-
-        if (redMessage.gameObject.activeInHierarchy == true || blueMessage.gameObject.activeInHierarchy == true)
+        // If game end is true
+        if (gameManager.GameEnd() == true)
         {
-            rgbody2d.velocity = Vector3.zero; // Stop left paddle movement;      
+            rgbody2d.velocity = Vector3.zero; // Set vector3 to zero (stop all movements)
         }
         else
         {
@@ -30,6 +29,5 @@ public class PaddleMovement : MonoBehaviour
             // Move the paddle up or down using vertical input controls
             rgbody2d.MovePosition(transform.position + new Vector3(0, verticalinput * movementSpd * Time.deltaTime, 0));
         }
-
     }
 }
